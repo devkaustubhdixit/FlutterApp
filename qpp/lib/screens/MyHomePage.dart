@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(
                 child: ElevatedButton(onPressed: () => {Navigator.push(
-                context,MaterialPageRoute(builder: (context) => const CallDoctor()))}, child:Row(children: [Image.asset('assets/images/d.jpg')  ,Text("Call Docs",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold))])),height: 150.0,
+                context,MaterialPageRoute(builder: (context) => const VoiceCallScreen()))}, child:Row(children: [Image.asset('assets/images/d.jpg')  ,Text("Call Docs",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold))])),height: 150.0,
           width: 500.0,
               )
           ]
