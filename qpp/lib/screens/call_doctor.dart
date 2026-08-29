@@ -90,7 +90,7 @@ class _VoiceCallScreenState extends State<VoiceCallScreen>
             ),
             const SizedBox(height: 30),
             const Text(
-              'Sarah Johnson',
+              'Dr. Dev Kaustubh Dixit',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 28,
