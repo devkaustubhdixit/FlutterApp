@@ -19,18 +19,18 @@ class HomePage extends StatelessWidget {
           children: [SizedBox(
             child: ElevatedButton(onPressed:() => { Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const reminder()))}, child:Row(children: [Image.asset('assets/images/a.jpg'),Text("Reminders",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold))])),
+                MaterialPageRoute(builder: (context) => const NotificationBanners()))}, child:Row(children: [Image.asset('assets/images/a.jpg'),Text("Reminders",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold))])),
           height: 150.0,
           width: 500.0,),
               
               SizedBox(
                 child: ElevatedButton(onPressed: () => {Navigator.push(
-                context,MaterialPageRoute(builder: (context) => const playgames()))} , child:Row(children: [Image.asset('assets/images/b.jpg')  ,Text("Play Games",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold),)] )),height: 150.0,
+                context,MaterialPageRoute(builder: (context) => const GameScreen()))} , child:Row(children: [Image.asset('assets/images/b.jpg')  ,Text("Play Games",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold),)] )),height: 150.0,
           width: 500.0,
               ),
               SizedBox(
                 child: ElevatedButton(onPressed: () => {Navigator.push(
-                context,MaterialPageRoute(builder: (context) => const ListenMusic()))}, child:Row(children: [Image.asset('assets/images/c.jpg')  ,Text("Listen Music",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold))])),height: 150.0,
+                context,MaterialPageRoute(builder: (context) => LocalAudioPlayer(source: LocalAudioSource.asset('audio/dope_shope.mp3'),)))}, child:Row(children: [Image.asset('assets/images/c.jpg')  ,Text("Listen Music",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold))])),height: 150.0,
           width: 500.0,
               ),
               SizedBox(
@@ -38,8 +38,6 @@ class HomePage extends StatelessWidget {
                 context,MaterialPageRoute(builder: (context) => const CallDoctor()))}, child:Row(children: [Image.asset('assets/images/d.jpg')  ,Text("Call Docs",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold))])),height: 150.0,
           width: 500.0,
               )
-              
-              
           ]
         )
       ),
