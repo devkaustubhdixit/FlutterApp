@@ -1,74 +1,221 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qpp/screens/reminder.dart';
 import 'package:qpp/screens/playgames.dart';
 import 'package:qpp/screens/Listen_Music.dart';
 import 'package:qpp/screens/call_doctor.dart';
 import 'package:qpp/screens/chatbot.dart';
 
-
-
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      
-      appBar: AppBar(title: Text("Welcome ",style: TextStyle(
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
     
-    fontSize: 30.0,
-    fontWeight: FontWeight.bold,
-  ),))
-      
-      ,
-      body: Center(
-        child:Column(spacing: 15,
-          children: [SizedBox(
-            height: 150.0.h,
-          width: 500.0.w,
-            child: ElevatedButton(onPressed:() => { Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const NotificationBanners()))}, child:Row(spacing:25.0.w ,children: [Text("Reminders",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold)),const CircleAvatar(
-  radius: 70.0,
-  backgroundImage: AssetImage('assets/images/a.jpg'),
-)])),),
-              
-              SizedBox(
-                height: 140.0.h,
-          width: 500.0.w,
-                child: ElevatedButton(onPressed: () => {Navigator.push(
-                context,MaterialPageRoute(builder: (context) => const GameScreen()))} , child:Row(spacing: 20.0.w ,children: [const CircleAvatar(
-  radius: 70.0,
-  backgroundImage: AssetImage('assets/images/b.jpg'),
-) ,Text("Play Games",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold),)] )),
-              ),
-              SizedBox(
-                height: 140.0.h,
-          width: 500.0.w,
-                child: ElevatedButton(onPressed: () => {Navigator.push(
-                context,MaterialPageRoute(builder: (context) => LocalAudioPlayer(source: LocalAudioSource.asset('audio/dope_shope.mp3'),)))}, child:Row(children: [Text("Listen Music",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold)),const CircleAvatar(
-  radius: 70.0,
-  backgroundImage: AssetImage('assets/images/c.jpg'),
-)])),
-              ),
-              SizedBox(
-                height: 140.0.h,
-          width: 500.0.w,
-                child: ElevatedButton(onPressed: () => {Navigator.push(
-                context,MaterialPageRoute(builder: (context) => const CallDoctor()))}, child:Row(children: [const CircleAvatar(
-  radius: 70.0,
-  backgroundImage: AssetImage('assets/images/d.jpg'),
-)  ,Text("Call CareTaker",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold))])),
-              )
-          ,SizedBox(child:FloatingActionButton(onPressed: () => {Navigator.push(
-                context,MaterialPageRoute(builder: (context) => const AIchatbot()))},child: Text("Talk to AI Sahayak"),),width:250.w)]
-        )
+    // Dynamic size for button content to maintain proportions
+    final double buttonHeight = screenHeight * 0.13;
+    final double buttonWidth = screenWidth * 0.85;
+    final double avatarRadius = buttonHeight * 0.35; 
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Welcome",
+          style: TextStyle(
+            fontFamily: 'AtkinsonHyperlegible',
+            fontSize: 30.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
-      
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // 1. Reminders
+              SizedBox(
+                height: buttonHeight,
+                width: buttonWidth,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NotificationBanners(),
+                      ),
+                    );
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: Alignment.centerLeft,
+                          child: const Text(
+                            "Reminders",
+                            style: TextStyle(
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      CircleAvatar(
+                        radius: avatarRadius,
+                        backgroundImage: const AssetImage('assets/images/a.jpg'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15.0),
+
+              // 2. Play Games
+              SizedBox(
+                height: buttonHeight,
+                width: buttonWidth,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const GameScreen(),
+                      ),
+                    );
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CircleAvatar(
+                        radius: avatarRadius,
+                        backgroundImage: const AssetImage('assets/images/b.jpg'),
+                      ),
+                      Expanded(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: Alignment.centerRight,
+                          child: const Text(
+                            "Play Games",
+                            style: TextStyle(
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15.0),
+
+              // 3. Listen Music
+              SizedBox(
+                height: buttonHeight,
+                width: buttonWidth,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LocalAudioPlayer(
+                          source: LocalAudioSource.asset('audio/dope_shope.mp3'),
+                        ),
+                      ),
+                    );
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: Alignment.centerLeft,
+                          child: const Text(
+                            "Listen Music",
+                            style: TextStyle(
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      CircleAvatar(
+                        radius: avatarRadius,
+                        backgroundImage: const AssetImage('assets/images/c.jpg'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15.0),
+
+              // 4. Call CareTaker
+              SizedBox(
+                height: buttonHeight,
+                width: buttonWidth,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CallDoctor(),
+                      ),
+                    );
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CircleAvatar(
+                        radius: avatarRadius,
+                        backgroundImage: const AssetImage('assets/images/d.jpg'),
+                      ),
+                      Expanded(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: Alignment.centerRight,
+                          child: const Text(
+                            "Call CareTaker",
+                            style: TextStyle(
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15.0),
+
+              // 5. Talk to AI Sahayak
+              SizedBox(
+                width: buttonWidth,
+                height: buttonHeight * 0.7,
+                child: FloatingActionButton.extended(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AIchatbot(),
+                      ),
+                    );
+                  },
+                  label: const Text(
+                    "Talk to AI Sahayak",
+                    style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                  ),
+                  icon: const Icon(Icons.chat),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
-    
-    
   }
 }
