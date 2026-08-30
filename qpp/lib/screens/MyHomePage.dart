@@ -201,7 +201,7 @@ class HomePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const AIchatbot(),
+                        builder: (context) => const AiAssistantPage(),
                       ),
                     );
                   },
