@@ -14,38 +14,58 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       
-      appBar: AppBar(title: Text("Welcome "))
+      appBar: AppBar(title: Text("Welcome ",style: TextStyle(
+    fontFamily: 'AtkinsonHyperlegible',
+    fontSize: 30.0,
+    fontWeight: FontWeight.bold,
+  ),))
       
       ,
       body: Center(
-        child:Column(
+        child:Column(spacing: 15,
           children: [SizedBox(
             height: 150.0,
           width: 500.0,
             child: ElevatedButton(onPressed:() => { Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const NotificationBanners()))}, child:Row(children: [Image.asset('assets/images/a.jpg'),Text("Reminders",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold))])),),
+                MaterialPageRoute(builder: (context) => const NotificationBanners()))}, child:Row(spacing:25.0 ,children: [Text("Reminders",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold)),const CircleAvatar(
+  radius: 70.0,
+  backgroundImage: AssetImage('assets/images/a.jpg'),
+)])),),
               
               SizedBox(
-                height: 150.0,
+                height: 140.0,
           width: 500.0,
                 child: ElevatedButton(onPressed: () => {Navigator.push(
-                context,MaterialPageRoute(builder: (context) => const GameScreen()))} , child:Row(children: [Image.asset('assets/images/b.jpg')  ,Text("Play Games",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold),)] )),
+                context,MaterialPageRoute(builder: (context) => const GameScreen()))} , child:Row(spacing: 20.0 ,children: [const CircleAvatar(
+  radius: 70.0,
+  backgroundImage: AssetImage('assets/images/b.jpg'),
+) ,Text("Play Games",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold),)] )),
               ),
               SizedBox(
-                height: 150.0,
+                height: 140.0,
           width: 500.0,
                 child: ElevatedButton(onPressed: () => {Navigator.push(
-                context,MaterialPageRoute(builder: (context) => LocalAudioPlayer(source: LocalAudioSource.asset('audio/dope_shope.mp3'),)))}, child:Row(children: [Image.asset('assets/images/c.jpg')  ,Text("Listen Music",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold))])),
+                context,MaterialPageRoute(builder: (context) => LocalAudioPlayer(source: LocalAudioSource.asset('audio/dope_shope.mp3'),)))}, child:Row(children: [Text("Listen Music",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold)),const CircleAvatar(
+  radius: 70.0,
+  backgroundImage: AssetImage('assets/images/c.jpg'),
+)])),
               ),
               SizedBox(
-                height: 150.0,
+                height: 140.0,
           width: 500.0,
                 child: ElevatedButton(onPressed: () => {Navigator.push(
-                context,MaterialPageRoute(builder: (context) => const CallDoctor()))}, child:Row(children: [Image.asset('assets/images/d.jpg')  ,Text("Call Docs",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold))])),
+                context,MaterialPageRoute(builder: (context) => const CallDoctor()))}, child:Row(children: [const CircleAvatar(
+  radius: 70.0,
+  backgroundImage: AssetImage('assets/images/d.jpg'),
+)  ,Text("Call CareTaker",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold))])),
               )
           ,SizedBox(child:FloatingActionButton(onPressed: () => {Navigator.push(
+<<<<<<< HEAD
+                context,MaterialPageRoute(builder: (context) => const AIchatbot()))},child: Text("Talk to AI Sahayak"),),width:250)]
+=======
                 context,MaterialPageRoute(builder: (context) => const AIchatbot()))}))]
+>>>>>>> bb148caf11b3d37bd681dde8388d9f49c194e810
         )
       ),
       
