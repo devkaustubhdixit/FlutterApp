@@ -315,19 +315,19 @@ class _CognitiveGameWidgetState extends State<CognitiveGameWidget>
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 120),
             decoration: BoxDecoration(
-              color: isLit ? baseColor : baseColor.withOpacity(0.35),
+              color: isLit ? baseColor : baseColor.withValues(alpha: 0.35),
               borderRadius: BorderRadius.circular(16),
               boxShadow: isLit
                   ? [
                       BoxShadow(
-                        color: baseColor.withOpacity(0.7),
+                        color: baseColor.withValues(alpha: 0.7),
                         blurRadius: 18,
                         spreadRadius: 2,
                       ),
                     ]
                   : [],
               border: Border.all(
-                color: baseColor.withOpacity(0.6),
+                color: baseColor.withValues(alpha: 0.6),
                 width: 2,
               ),
             ),
@@ -347,7 +347,7 @@ class _CognitiveGameWidgetState extends State<CognitiveGameWidget>
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Theme.of(context).colorScheme.surfaceContainerHighest.withOpacity(0.4),
+        color: Theme.of(context).colorScheme.surfaceContainerHighest.withValues(alpha: 0.4),
       ),
       alignment: Alignment.center,
       padding: const EdgeInsets.all(24),
