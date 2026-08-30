@@ -36,7 +36,8 @@ dependencies:
   sqflite: ^2.3.0
   path: ^1.8.3
   http: ^1.1.0 # Use latest version
-
+  flutter_screenutil: ^5.9.3
+  google_fonts: ^6.2.1
 
   
 
