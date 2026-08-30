@@ -6,7 +6,7 @@ class NotificationBanners extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Reminders')),
+      appBar: AppBar(title: const Text('Reminders') ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
