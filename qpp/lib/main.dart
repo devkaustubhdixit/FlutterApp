@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qpp/screens/MyHomePage.dart';
+import 'package:qpp/model.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,8 +10,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home:  HomePage(),
+    return  MaterialApp(
+      home:HomePage()
     );
 
   }

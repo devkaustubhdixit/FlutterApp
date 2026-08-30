@@ -3,6 +3,7 @@ import 'package:qpp/screens/reminder.dart';
 import 'package:qpp/screens/playgames.dart';
 import 'package:qpp/screens/Listen_Music.dart';
 import 'package:qpp/screens/call_doctor.dart';
+import 'package:qpp/screens/chatbot.dart';
 
 
 
@@ -43,7 +44,8 @@ class HomePage extends StatelessWidget {
                 child: ElevatedButton(onPressed: () => {Navigator.push(
                 context,MaterialPageRoute(builder: (context) => const CallDoctor()))}, child:Row(children: [Image.asset('assets/images/d.jpg')  ,Text("Call Docs",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold))])),
               )
-          ]
+          ,SizedBox(child:FloatingActionButton(onPressed: () => {Navigator.push(
+                context,MaterialPageRoute(builder: (context) => const AIchatbot()))}))]
         )
       ),
       
