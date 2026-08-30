@@ -61,7 +61,11 @@ class HomePage extends StatelessWidget {
 )  ,Text("Call CareTaker",style: TextStyle(fontSize: 30.00, fontWeight: FontWeight.bold))])),
               )
           ,SizedBox(child:FloatingActionButton(onPressed: () => {Navigator.push(
+<<<<<<< HEAD
                 context,MaterialPageRoute(builder: (context) => const AIchatbot()))},child: Text("Talk to AI Sahayak"),),width:250)]
+=======
+                context,MaterialPageRoute(builder: (context) => const AIchatbot()))}))]
+>>>>>>> bb148caf11b3d37bd681dde8388d9f49c194e810
         )
       ),
       
