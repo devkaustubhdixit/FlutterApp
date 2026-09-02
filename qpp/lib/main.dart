@@ -1,30 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
-import 'package:qpp/screens/MyHomePage.dart';
-import 'package:qpp/model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qpp/screens/LOGINPAGE.dart';
+import 'package:qpp/screens/MyHomePage.dart';
+import 'package:qpp/screens/data/local/db_helper.dart';
 
-void main() {
-  runApp(const MyApp());
+// 1. main() MUST be defined outside the MyApp class at root level
+DBhelper dbh= DBhelper.getInstance();
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  
+
+
+DBhelper dbh= DBhelper.getInstance();
+final bool isLogin= await dbh.loginauth();
+runApp(MyApp(isLogin:isLogin));
+
 }
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  
-  
+  final bool isLogin;
+  const MyApp( {super.key, required  this.isLogin});
 
   @override
   Widget build(BuildContext context) {
-  final double screenWidth = MediaQuery.of(context as BuildContext).size.width;
-  final double screenHeight = MediaQuery.of(context as BuildContext).size.height; 
-    return  ScreenUtilInit(
-      designSize:  Size(screenWidth, screenHeight), // Target base design size
+    return ScreenUtilInit(
+      // 2. Set your target standard design frame size (width, height) in logical pixels
+      designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child){return MaterialApp(
+      builder: (context, child) {
+        return  MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: const HomePage());}
-      
+          home: isLogin ? HomePage():Loginpage(),
+        );
+      },
     );
-
   }
 }
